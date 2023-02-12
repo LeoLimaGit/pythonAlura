@@ -3,16 +3,21 @@ print("Bem vindo ao jogo da adivinhação!")
 print("*********************************")
 numero_secreto = 45
 tentativas = 5
-rodada = 1
 
-while(rodada <= tentativas):
+for rodada in range(1, tentativas +1 ):
     print("Tentativa {} de {}".format(rodada, tentativas))
-    numero_str = input("Digite o seu palpite")
+    numero_str = input("Digite o seu palpite,de 0 a 100: ")
     numero = int(numero_str)
+    print("Você digitou: ", numero)
+
+
     acertou=(numero == numero_secreto)
     maior=(numero > numero_secreto)
     menor=(numero < numero_secreto)
 
+    if numero < 0 or numero > 100:
+        print("Digite um valor entre 0 e 100")
+        continue
 
     if acertou:
         print("Você acertou!")
@@ -21,5 +26,5 @@ while(rodada <= tentativas):
         print("Você errou, chutou muito pra cima!")
     elif menor:
         print("Você errou, chutou muito pra baixo!")
-    rodada= rodada +1
+
 print("Fim")
